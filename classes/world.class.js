@@ -2,6 +2,7 @@ class World {
 
 
     character = new Character();
+    statusbar = new Statusbar();
     level = level1;
     canvas;
     ctx;
@@ -29,6 +30,7 @@ class World {
             this.level.enemies.forEach( (enemy) => {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
+                    this.statusbar.setPercentage(this.character.energy);
                 }
             });
         }, 200);
@@ -40,6 +42,9 @@ class World {
         this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
+        this.ctx.translate(-this.camera_x, 0);
+        this.addToMap(this.statusbar);
+        this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.bottles);
