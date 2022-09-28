@@ -1,8 +1,9 @@
 class Character extends MovableObject {
-
+    y = 145;
     height = 300;
     width = 130;
     speed = 10;
+    bottle = 0;
     world;
     IMAGES_WALKING = [
         'img/2_character_pepe/2_walk/W-21.png',
@@ -94,5 +95,10 @@ class Character extends MovableObject {
 
     jump() {
         this.speedY = 20;
+    }
+
+
+    collectBottle() {
+        this.bottle += 20;
     }
 }

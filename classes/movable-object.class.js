@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     acceleration = 1;
     energy = 100;
     lastHit = 0;
+    bottleTimePassed = 2;
 
 
     applyGravity() {
@@ -51,8 +52,24 @@ class MovableObject extends DrawableObject {
     }
 
 
+    kill() {
+        this.energy = 0;
+    }
+
+
     isDead() {
         return this.energy == 0;
+    }
+
+
+    setTimeSinceLastBottle() {
+        this.bottleTimePassed = new Date().getTime();
+    }
+
+    getTimeSinceLastBottle() {
+        let lastBottle = new Date().getTime() - this.bottleTimePassed;
+        lastBottle = lastBottle / 1000;
+        return lastBottle > 1.5;
     }
 
 

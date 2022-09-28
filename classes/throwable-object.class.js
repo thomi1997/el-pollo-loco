@@ -1,20 +1,65 @@
 class ThrowableObject extends MovableObject {
 
+    height = 100;
+    width = 80;
+    bottleBreak = false;
+    speed = 50;
+    speedY = 15;
+
+
+    THROWN_BOTTLE = [
+        'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
+        'img/6_salsa_bottle/bottle_rotation/2_bottle_rotation.png',
+        'img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png',
+        'img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png',
+    ];
+
+
+    THROWN_BOTTLE_BREAKS = [
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/1_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/2_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/3_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/4_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/5_bottle_splash.png',
+        'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png',
+    ];
+
+
     constructor(x, y) {
-        super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
+        super().loadImage(this.THROWN_BOTTLE[0]);
+        this.loadImages(this.THROWN_BOTTLE);
+        this - this.loadImages(this.THROWN_BOTTLE_BREAKS);
         this.x = x;
         this.y = y;
-        this.height = 100;
-        this.width = 80;
+        this.setDirection();
         this.throw();
     }
 
 
     throw() {
-        this.speedY = 30;
         this.applyGravity();
         setInterval(() => {
-            this.x += 10;
-        }, 50);
+            if (this.otherDirection) {
+                this.moveLeft();
+            }
+
+            if (!this.otherDirection) {
+                this.moveRight();
+            }
+
+            if (this.bottleBreak) {
+                this.playAnimation(this.THROWN_BOTTLE_BREAKS);
+            }else {
+                this.playAnimation(this.THROWN_BOTTLE);
+            }
+        }, 60);
+    }
+
+
+    setDirection() {
+        if (world.character.otherDirection)
+            this.otherDirection = true;
+        if (!world.character.otherDirection)
+            this.otherDirection = false;
     }
 }
