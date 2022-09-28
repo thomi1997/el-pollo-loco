@@ -3,7 +3,7 @@ const level1 = new Level(
     getEnemys(),
     getClouds(),
     getBottles(),
-    getBackgroundObjects(),
+    getBackgroundObjects()
 );
 
 

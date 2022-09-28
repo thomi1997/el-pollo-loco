@@ -18,8 +18,8 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld();
-        this.run();
         this.checkCollisions();
+        this.run();
     }
 
 
@@ -158,7 +158,6 @@ class World {
 
     normalChickenIsHittedFromTop(object) {
         return !(object instanceof Endboss) &&
-            !(object instanceof SmallChicken) &&
             this.character.isColliding(object) &&
             this.character.speedY < 0 &&
             this.character.isAboveGround() &&
@@ -203,8 +202,7 @@ class World {
 
     collectBottle(index) {
         this.character.collectBottle();
-        console.log('setpercentage', this.character.bottle);
         this.statusbarBottle.setPercentage(this.character.bottle);
-        this.level.objects.splice(index, 1);
+        this.level.bottles.splice(index, 1);
     }
 }
