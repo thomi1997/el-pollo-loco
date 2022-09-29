@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     acceleration = 1;
     energy = 100;
     lastHit = 0;
+    ground = 145;
     bottleTimePassed = 2;
 
 
@@ -22,7 +23,7 @@ class MovableObject extends DrawableObject {
         if (this instanceof ThrowableObject) { // ThrowableObjects should always fall
             return true;
         } else {
-            return this.y < 145;
+            return this.y < this.ground;
         }
     }
 

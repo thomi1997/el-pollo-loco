@@ -1,8 +1,8 @@
 class StatusbarCoins extends DrawableObject {
     width = 200;
     height = 60;
-    x = 420;
-    y = 55;
+    x = 12;
+    y = 100;
     percentage = 0;
 
 

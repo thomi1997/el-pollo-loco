@@ -1,7 +1,7 @@
 const level1 = new Level(
     getEnemys(),
-    getClouds(),
     getBackgroundObjects(),
+    getClouds(),
     getCollectables()
 );
 
@@ -19,6 +19,18 @@ function getEnemys() {
         new Chicken(),
         new Chicken(),
         new Chicken(),
+        new Chicken(),
+        new Chicken(),
+        new Chicken(),
+        new Chicken(),
+        new Chicken(),
+        new Chicken(),
+        new SmallChicken(),
+        new SmallChicken(),
+        new SmallChicken(),
+        new SmallChicken(),
+        new SmallChicken(),
+        new SmallChicken(),
         new SmallChicken(),
         new SmallChicken(),
         new SmallChicken(),
@@ -29,6 +41,15 @@ function getEnemys() {
 
 function getClouds() {
     return [
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
+        new Cloud(),
         new Cloud(),
         new Cloud(),
         new Cloud()
@@ -62,11 +83,58 @@ function getBackgroundObjects() {
         new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 719 * 3),
         new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719 * 3),
         new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 3),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 4),
+        new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719 * 4),
+        new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719 * 4),
+        new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719 * 4),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 5),
+        new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 719 * 5),
+        new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719 * 5),
+        new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 5),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 6),
+        new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719 * 6),
+        new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719 * 6),
+        new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719 * 6),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 7),
+        new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 719 * 7),
+        new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719 * 7),
+        new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 7),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 8),
+        new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719 * 8),
+        new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719 * 8),
+        new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719 * 8),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 9),
+        new BackgroundObject('img/5_background/layers/3_third_layer/1.png', 719 * 9),
+        new BackgroundObject('img/5_background/layers/2_second_layer/1.png', 719 * 9),
+        new BackgroundObject('img/5_background/layers/1_first_layer/1.png', 719 * 9),
+
+        new BackgroundObject('img/5_background/layers/air.png', 719 * 10),
+        new BackgroundObject('img/5_background/layers/3_third_layer/2.png', 719 * 10),
+        new BackgroundObject('img/5_background/layers/2_second_layer/2.png', 719 * 10),
+        new BackgroundObject('img/5_background/layers/1_first_layer/2.png', 719 * 10),
     ]
 }
 
 function getBottles() {
     return [
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
         new Bottles(),
         new Bottles(),
         new Bottles(),
@@ -80,6 +148,8 @@ function getBottles() {
 
 function getCoins() {
     return [
+        new Coin(),
+        new Coin(),
         new Coin(),
         new Coin(),
         new Coin(),
