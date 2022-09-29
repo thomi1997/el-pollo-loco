@@ -4,7 +4,9 @@ class World {
     character = new Character();
     statusbarHealth = new StatusbarHealth();
     statusbarBottle = new StatusbarBottle();
+    statusbarCoins = new StatusbarCoins();
     throwableObjects = [];
+    timeSinceLastBottle = 2;
     level = level1;
     canvas;
     ctx;
@@ -63,10 +65,6 @@ class World {
             this.character.bottle -= 20;
             this.statusbarBottle.setPercentage(this.character.bottle);
         }
-        /*if (this.keyboard.D) {
-            let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
-            this.throwableObjects.push(bottle);
-        }*/
     }
 
 
@@ -87,9 +85,8 @@ class World {
             if (this.character.isColliding(object)) {
                 if (object instanceof Bottles && this.character.bottle < 100)
                     this.collectBottle(index);
-                    /*
                 if (object instanceof Coin && this.character.coin < 80)
-                    this.collectCoin(index);*/
+                    this.collectCoin(index);   
             }
         });
     }
@@ -100,14 +97,15 @@ class World {
         this.ctx.translate(this.camera_x, 0);
         this.addObjectsToMap(this.level.backgroundObjects);
         this.addObjectsToMap(this.level.clouds);
+        this.addObjectsToMap(this.throwableObjects);
+        this.addObjectsToMap(this.level.objects);
+        this.addObjectsToMap(this.level.enemies);
+        this.addToMap(this.character);
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusbarHealth);
         this.addToMap(this.statusbarBottle);
+        this.addToMap(this.statusbarCoins);
         this.ctx.translate(this.camera_x, 0);
-        this.addToMap(this.character);
-        this.addObjectsToMap(this.level.bottles);
-        this.addObjectsToMap(this.level.enemies);
-        this.addObjectsToMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x, 0);
 
         let self = this;
@@ -200,9 +198,16 @@ class World {
     }
 
 
+    collectCoin(index) {
+        this.character.collectCoin();
+        this.statusbarCoins.setPercentage(this.character.coin);
+        this.level.objects.splice(index, 1);
+    }
+
+
     collectBottle(index) {
         this.character.collectBottle();
         this.statusbarBottle.setPercentage(this.character.bottle);
-        this.level.bottles.splice(index, 1);
+        this.level.objects.splice(index, 1);
     }
 }
