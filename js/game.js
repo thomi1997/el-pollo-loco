@@ -11,6 +11,21 @@ function init() {
 }
 
 
+function startGame() {
+    document.getElementById('start-screen').style = 'display: none;';
+}
+
+
+function controller() {
+    document.getElementById('control').style = 'display: flex;';
+}
+
+
+function closeController() {
+    document.getElementById('control').style = 'display: none;';
+}
+
+
 window.addEventListener('keydown', (event) => {
     if(event.keyCode == 39) {
         keyboard.RIGHT = true;
