@@ -31,13 +31,47 @@
 
 <body onload="init()">
     <div class="game-play">
+        <canvas id="canvas" width="720" height="480">
+        </canvas>
+        <div class="mobile-gameplay">
+            <div class="btn-left-and-right margin-bottum-15">
+                <div class="margin-left-15">
+                    <svg class="button" id="buttonLeft" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256S114.6 512 256 512s256-114.6 256-256zM116.7 244.7l112-112c4.6-4.6 11.5-5.9 17.4-3.5s9.9 8.3 9.9 14.8l0 64 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 64c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5l-112-112c-6.2-6.2-6.2-16.4 0-22.6z" />
+                    </svg>
+                </div>
+                <div class="margin-left-15">
+                    <svg class="button" id="buttonRight" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M0 256C0 397.4 114.6 512 256 512s256-114.6 256-256S397.4 0 256 0S0 114.6 0 256zm395.3 11.3l-112 112c-4.6 4.6-11.5 5.9-17.4 3.5s-9.9-8.3-9.9-14.8l0-64-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-64c0-6.5 3.9-12.3 9.9-14.8s12.9-1.1 17.4 3.5l112 112c6.2 6.2 6.2 16.4 0 22.6z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="btn-jump-and-throw margin-bottum-15">
+                <div class="margin-right-15">
+                    <svg class="button" id="buttonJump" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm11.3-395.3l112 112c4.6 4.6 5.9 11.5 3.5 17.4s-8.3 9.9-14.8 9.9H304v96c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V256H144c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0z" />
+                    </svg>
+                </div>
+                <div class="margin-right-15">
+                    <svg class="button" id="buttonThrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path 
+                            d="M384 32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H384zM160 160c-6.5 0-12.3 3.9-14.8 9.9s-1.1 12.9 3.5 17.4l40 40-71 71C114 302 112 306.9 112 312s2 10 5.7 13.7l36.7 36.7c3.6 3.6 8.5 5.7 13.7 5.7s10-2 13.7-5.7l71-71 40 40c4.6 4.6 11.5 5.9 17.4 3.5s9.9-8.3 9.9-14.8V176c0-8.8-7.2-16-16-16H160z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="game-menu" id="start-screen">
         <h1>
             El Pollo Loco
         </h1>
-        <canvas id="canvas" width="720" height="480">
-        </canvas>
-    </div>
-    <div class="game-menu" id="start-screen">
         <div class="gameplay-icons">
             <div>
                 <div>
@@ -66,7 +100,7 @@
             </div>
         </div>
         <div class="control-section" id="control">
-            <div>
+            <div class="d-flex flex-start">
                 <svg class="close-icon cursor-pointer" onclick="closeController()" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512">
                     <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -75,48 +109,53 @@
                 </svg>
             </div>
             <div class="control-guide">
-                <div class="padding-right">
-                    <div class="control-box margin-bottum d-flex align-items f-d-column">
-                        <svg class="move-left-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256S114.6 512 256 512s256-114.6 256-256zM116.7 244.7l112-112c4.6-4.6 11.5-5.9 17.4-3.5s9.9 8.3 9.9 14.8l0 64 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 64c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5l-112-112c-6.2-6.2-6.2-16.4 0-22.6z" />
-                        </svg>
-                        <p>
-                            Move Left
-                        </p>
-                    </div>
-                    <div class="control-box d-flex align-items f-d-column">
-                        <svg class="move-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M0 256C0 397.4 114.6 512 256 512s256-114.6 256-256S397.4 0 256 0S0 114.6 0 256zm395.3 11.3l-112 112c-4.6 4.6-11.5 5.9-17.4 3.5s-9.9-8.3-9.9-14.8l0-64-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-64c0-6.5 3.9-12.3 9.9-14.8s12.9-1.1 17.4 3.5l112 112c6.2 6.2 6.2 16.4 0 22.6z" />
-                        </svg>
-                        <p>
-                            Move Right
-                        </p>
-                    </div>
+                <div>
+                    <img class="controller-img" src="img/icons_and_background/controller.png">
                 </div>
-                <div class="padding-left">
-                    <div class="control-box margin-bottum d-flex align-items f-d-column">
-                        <svg class="jump-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm11.3-395.3l112 112c4.6 4.6 5.9 11.5 3.5 17.4s-8.3 9.9-14.8 9.9H304v96c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V256H144c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0z" />
-                        </svg>
-                        <p>
-                            Jump
-                        </p>
+                <div class="flex-direction-boxes">
+                    <div class="box-left">
+                        <div class="control-box margin-bottum-15 d-flex align-items f-d-column">
+                            <svg class="move-left-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256S114.6 512 256 512s256-114.6 256-256zM116.7 244.7l112-112c4.6-4.6 11.5-5.9 17.4-3.5s9.9 8.3 9.9 14.8l0 64 96 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32l-96 0 0 64c0 6.5-3.9 12.3-9.9 14.8s-12.9 1.1-17.4-3.5l-112-112c-6.2-6.2-6.2-16.4 0-22.6z" />
+                            </svg>
+                            <p>
+                                Move Left
+                            </p>
+                        </div>
+                        <div class="control-box d-flex align-items f-d-column">
+                            <svg class="move-right-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M0 256C0 397.4 114.6 512 256 512s256-114.6 256-256S397.4 0 256 0S0 114.6 0 256zm395.3 11.3l-112 112c-4.6 4.6-11.5 5.9-17.4 3.5s-9.9-8.3-9.9-14.8l0-64-96 0c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32l96 0 0-64c0-6.5 3.9-12.3 9.9-14.8s12.9-1.1 17.4 3.5l112 112c6.2 6.2 6.2 16.4 0 22.6z" />
+                            </svg>
+                            <p>
+                                Move Right
+                            </p>
+                        </div>
                     </div>
-                    <div class="control-box d-flex align-items f-d-column">
-                        <svg class="throw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                            <path
-                                d="M0 64C0 46.3 14.3 32 32 32H160c123.7 0 224 100.3 224 224s-100.3 224-224 224H32c-17.7 0-32-14.3-32-32V64zM64 96V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160H64z" />
-                        </svg>
-                        <p>
-                            Throw Bottle
-                        </p>
+                    <div class="box-right">
+                        <div class="control-box margin-bottum-15 d-flex align-items f-d-column">
+                            <svg class="jump-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm11.3-395.3l112 112c4.6 4.6 5.9 11.5 3.5 17.4s-8.3 9.9-14.8 9.9H304v96c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V256H144c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0z" />
+                            </svg>
+                            <p>
+                                Jump
+                            </p>
+                        </div>
+                        <div class="control-box d-flex align-items f-d-column">
+                            <svg class="throw-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path
+                                    d="M0 64C0 46.3 14.3 32 32 32H160c123.7 0 224 100.3 224 224s-100.3 224-224 224H32c-17.7 0-32-14.3-32-32V64zM64 96V416h96c88.4 0 160-71.6 160-160s-71.6-160-160-160H64z" />
+                            </svg>
+                            <p>
+                                Throw Bottle
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

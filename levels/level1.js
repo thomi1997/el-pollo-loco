@@ -2,16 +2,17 @@ const level1 = new Level(
     getEnemys(),
     getBackgroundObjects(),
     getClouds(),
-    getCollectables()
+    getCollectables(),
 );
 
 
 function getCollectables() {
-    const coins = getCoins();
-    const bottles = getBottles();
-    const collectables = coins.concat(bottles);
+    let coins = getCoins();
+    let bottles = getBottles();
+    let collectables = coins.concat(bottles);
     return collectables;
 }
+
 
 
 function getEnemys() {

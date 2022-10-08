@@ -1,11 +1,20 @@
 class Character extends MovableObject {
-    y = 145;
-    height = 300;
-    width = 130;
+    
+    y = 200;
+    height = 250;
+    width = 150;
     speed = 10;
     bottle = 0;
     coin = 0;
     world;
+
+    offset = {
+        top: 125,
+        bottom: 0,
+        left: 45,
+        right: 45
+    };
+
     IMAGES_WALKING = [
         'img/2_character_pepe/2_walk/W-21.png',
         'img/2_character_pepe/2_walk/W-22.png',
@@ -70,10 +79,10 @@ class Character extends MovableObject {
                 this.otherDirection = true;
             }
 
-            if (this.world.keyboard.SPACE && !this.isAboveGround()) {
+            if (this.world.keyboard.UP && !this.isAboveGround()) {
                 this.jump();
             }
-            this.world.camera_x = -this.x + 100;
+            this.world.camera_x = -this.x + 120;
         }, 1000 / 60);
 
         setInterval(() => {

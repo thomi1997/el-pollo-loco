@@ -1,11 +1,12 @@
 class MovableObject extends DrawableObject {
+    
     speed = 0.15;
     otherDirection = false;
     speedY = 0;
     acceleration = 1;
     energy = 100;
     lastHit = 0;
-    ground = 145;
+    ground = 200;
     bottleTimePassed = 2;
 
 
@@ -28,11 +29,22 @@ class MovableObject extends DrawableObject {
     }
 
 
+    setTimeSinceLastBottle() {
+        this.bottleTimePassed = new Date().getTime();
+    }
+
+    getTimeSinceLastBottle() {
+        let lastBottle = new Date().getTime() - this.bottleTimePassed;
+        lastBottle = lastBottle / 1000;
+        return lastBottle > 1.5;
+    }
+
+
     isColliding(mo) {
-        return this.x + this.width > mo.x &&    // rechts > links =>   Kollision vorne
-            this.y + this.height > mo.y &&     //    oben > unten =>   Kollision unten
-            this.x < mo.x + mo.width &&       //    links > rechts =>  Kollision hinten
-            this.y < mo.y + mo.height;       //     unten > oben =>    Kollision oben   
+        return this.x + this.width - this.offset.right > mo.x + mo.offset.left &&   // rechts > links =>   Kollision vorne
+            this.x + this.offset.left < mo.x + mo.width - mo.offset.right &&        //    links > rechts =>  Kollision hinten
+            this.y + this.height - this.offset.bottom > mo.y + mo.offset.top &&    //    oben > unten =>   Kollision unten
+            this.y + this.offset.top < mo.y + mo.height - mo.offset.bottom       //     unten > oben =>    Kollision oben   
     }
 
 
@@ -60,17 +72,6 @@ class MovableObject extends DrawableObject {
 
     isDead() {
         return this.energy == 0;
-    }
-
-
-    setTimeSinceLastBottle() {
-        this.bottleTimePassed = new Date().getTime();
-    }
-
-    getTimeSinceLastBottle() {
-        let lastBottle = new Date().getTime() - this.bottleTimePassed;
-        lastBottle = lastBottle / 1000;
-        return lastBottle > 1.5;
     }
 
 

@@ -9,7 +9,8 @@ body {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 120px;
+    color: rgb(255, 156, 0);
     letter-spacing: 5px;
     text-shadow: 4px 2px 8px rgba(0, 0, 0, 0.5);
 }
@@ -22,18 +23,35 @@ p {
 
 canvas {
     background-color: black;
+    display: block;
 }
 
-.padding-right {
-    padding-right: 15px;
+@media only screen and (max-width: 760px) {
+    canvas {
+        width: 100%;
+    }
 }
 
-.padding-left {
-    padding-left: 15px;
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+    }
 }
 
-.margin-bottum {
-    margin-bottom: 30px;
+.padding-right-30 {
+    padding-right: 30px;
+}
+
+.margin-right-15 {
+    margin-right: 15px;
+}
+
+.margin-left-15 {
+    margin-left: 15px;
+}
+
+.margin-bottum-15 {
+    margin-bottom: 15px;
 }
 
 .f-d-column {
@@ -44,12 +62,39 @@ canvas {
     align-items: center;
 }
 
+.flex-start {
+    justify-content: flex-start;
+}
+
 .d-flex {
     display: flex;
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+/*Mobiles Gameplay -----------------------------------------------------------------*/
+
+.mobile-gameplay {
+    height: 480px;
+    width: 720px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.button {
+    height: 50px;
+}
+
+.btn-left-and-right {
+    display: flex;
+}
+
+.btn-jump-and-throw {
+    display: flex;
 }
 
 .game-play {
@@ -59,19 +104,21 @@ canvas {
     background-position: center;
     background-size: cover;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: absolute;
 }
 
 .game-menu {
+    display: none;
     height: 100vh;
     width: 100vw;
     background-image: url('img/icons_and_background/menu-background.jpg'); /*Attribution !!!*/
     background-position: center;
     background-size: cover;
     position: relative;
-    display: flex;
+    /*display: flex;*/
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -120,8 +167,8 @@ canvas {
 .control-section {
     display: none;
     flex-direction: column;
-    height: 500px;
-    width: 800px;
+    height: 50%;
+    max-width: 100%;
     background-color: rgb(168, 115, 59);
     border: solid 5px rgb(255, 221, 147);
     border-radius: 25px;
@@ -130,17 +177,42 @@ canvas {
 
 .control-guide {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.controller-img {
+    height: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .control-box {
+    word-wrap: break-word;
     border: solid 5px rgb(255, 221, 147);
     border-radius: 25px;
+}
+
+.flex-direction-boxes {
+    display: flex;
+}
+
+.box-right {
+    margin-right: 15px;
+}
+
+.box-left {
+    margin-right: 15px;
 }
 
 .close-icon {
     height: 50px;
     margin: 5px;
+}
+
+.close-icon:hover {
+    fill: rgb(255, 221, 147);
 }
 
 .move-left-icon {
@@ -161,4 +233,150 @@ canvas {
 .throw-icon {
     height: 50px;
     margin-top: 20px;
+}
+
+/* Game MENÜ -----------------------------------------------------------------*/
+
+@media (max-height:450px) {
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .sound-on {
+        height: 60px;
+    }
+
+    .control-button {
+        height: 60px;
+    }
+
+    .play-button {
+        height: 60px;
+    }
+}
+
+@media (max-width:600px) {
+
+    h1 {
+        font-size: 80px;
+    }
+
+    .sound-on {
+        height: 60px;
+    }
+
+    .control-button {
+        height: 60px;
+    }
+
+    .play-button {
+        height: 60px;
+    }
+}
+
+@media (max-width:400px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .sound-on {
+        height: 40px;
+    }
+
+    .control-button {
+        height: 40px;
+        margin: 0px;
+    }
+
+    .play-button {
+        height: 40px;
+    }
+}
+
+@media (max-width:265px) {
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* Controll Guide -----------------------------------------------------------------*/
+
+@media (max-height:850px) {
+    .control-section {
+        height: 80% !important;
+        overflow-y: scroll;
+    }
+
+    .flex-direction-boxes {
+        margin-bottom: 15px;
+    }
+
+    .control-guide {
+        margin-top: -20px;
+    }
+}
+
+@media (max-width:700px) {
+
+    .control-section {
+        width: 98%;
+        height: 70%;
+    }
+
+    .controller-img {
+        margin-bottom: 15px;
+    }
+
+    .control-guide {
+        flex-direction: column;
+    }
+
+    .box-right {
+        margin-right: 0px;
+    }
+
+    .margin-bottum-15 {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width:500px) {
+
+    .control-section {
+        width: 97%;
+    }
+}
+
+@media (max-width:420px) {
+
+    .control-section {
+        width: 97%;
+        overflow-y: scroll;
+    }
+
+    .controller-img {
+        height: 100px;
+    }
+
+    .flex-direction-boxes {
+        flex-direction: column;
+    }
+
+    .box-left {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+
+    .box-right {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width:340px) {
+    .control-section {
+        width: 95%;
+    }
 }

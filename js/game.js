@@ -7,6 +7,7 @@ let keyboard = new Keyboard();
 function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
+    mobileGamePlay();
     console.log('My Character is', world['character']);
 }
 
@@ -78,3 +79,46 @@ window.addEventListener('keyup', (event) => {
         keyboard.D = false;
     }
 });
+
+
+function mobileGamePlay() {
+    document.getElementById('buttonRight').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            keyboard.RIGHT = true;
+        });
+
+    document.getElementById('buttonRight').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.RIGHT = false;
+    });
+
+    document.getElementById('buttonLeft').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.LEFT = true;
+    });
+
+    document.getElementById('buttonLeft').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.LEFT = false;
+    });
+
+    document.getElementById('buttonJump').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.UP = true;
+    });
+
+    document.getElementById('buttonJump').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.UP = false;
+    });
+
+    document.getElementById('buttonThrow').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.D = true;
+    });
+
+    document.getElementById('buttonThrow').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.D = false;
+    });
+}

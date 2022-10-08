@@ -1,4 +1,5 @@
 class StatusbarBottle extends DrawableObject {
+    
     percentage = 0;
     x = 12;
     y = 50;

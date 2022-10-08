@@ -3,8 +3,8 @@ class ThrowableObject extends MovableObject {
     height = 100;
     width = 80;
     bottleBreak = false;
-    speed = 50;
-    speedY = 15;
+    speed = 2.5;
+    speedY = 9;
 
 
     THROWN_BOTTLE = [
@@ -52,7 +52,7 @@ class ThrowableObject extends MovableObject {
             }else {
                 this.playAnimation(this.THROWN_BOTTLE);
             }
-        }, 60);
+        }, 60 / 1000);
     }
 
 

@@ -3,9 +3,10 @@ class Endboss extends MovableObject {
     y = -40;
     height = 500;
     width = 300;
-
     energy = 20;
-    speed = 1;
+    speed = 1.5;
+    hittingBoss = false;
+
 
     IMAGES_WALKING = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -67,50 +68,62 @@ class Endboss extends MovableObject {
 
     animate() {
         setInterval(() => {
-            if (this.isDead()) {
-                this.playDead();
-            }else if (this.isHurt()) {
+            if (this.energy <= 0) this.playDead();
+            if (this.hittingBoss) {
                 this.playHurt();
-            } if (this.characterMeetsEndboss()) {
+                this.bossHitAnimation();
+            } else if (this.energy < 100 && this.energy > 0) {
+                this.playHurt();
                 this.moveLeft();
-            }
+                this.speed += 0.2;
+            } else if (this.energy == 100) this.playWalking();
         }, 200);
     }
 
 
     playDead() {
-        this.playAnimation(this.IMAGES_DEAD);
+        setInterval(() => {
+            this.playAnimation(this.IMAGES_DEAD);
+        }, 1500);
+    }
         /*
         setTimeout(() => {
             winScreen();
             world.backgroundMusic.pause();
         }, 700)*/
+
+
+    playWalking() {
+        setInterval(() => {
+            this.playAnimation(this.IMAGES_WALKING);
+        }, 1000);
+    }
+
+
+    playAttack() {
+        this.playAnimation(this.IMAGES_ATTACK);
     }
 
 
     playHurt() {
         this.playAnimation(this.IMAGES_HURT);
-        this.playAnimation(this.IMAGES_ATTACK);
-        this.speed += 0.5;
     }
 
 
+    playAlert() {
+        this.playAnimation(this.IMAGES_ALERT);
+    }
+
+    /*
     characterMeetsEndboss() {
-        return world && this.calculatedistance() < 700 && !this.isHurt();
+        return world && this.calculatedistance() < 7450 && !this.isHurt();
     }
 
 
     calculatedistance(distance) {
         distance = this.x - world.character.x
         return distance;
-    }
-
-    moveLeft() {
-        setInterval(() => {
-            super.moveLeft();
-        }, 1000);
-        this.playAnimation(this.IMAGES_WALKING);
-    }
+    }*/
 }
 
 

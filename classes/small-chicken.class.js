@@ -6,9 +6,11 @@ class SmallChicken extends MovableObject{
 
     energy = 1;
     isHittet = false;
-    speed = 10;
-    ground = 375;
+    speed = 25;
+    speedY = 40;
+    ground = 370;
     otherDirection = Math.random() < 0.5;
+
 
     IMAGES_WALKING = [
         'img/3_enemies_chicken/chicken_small/1_walk/1_w.png',
@@ -20,6 +22,7 @@ class SmallChicken extends MovableObject{
     IMAGES_DEAD = [
         'img/3_enemies_chicken/chicken_small/2_dead/dead.png'
     ];
+
     
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
@@ -31,8 +34,17 @@ class SmallChicken extends MovableObject{
         this.animate();
     }
 
+
+    setDirection() {
+        if (this.otherDirection)
+            this.otherDirection = false
+        else if (!this.otherDirection)
+            this.otherDirection = true;
+    }
+
+
     animate() {
-        setInterval (() => this.setDirection(), 1500);
+        setInterval (() => this.setDirection(), 10000);
         setInterval(() => {
             if (this.otherDirection) {
                 this.moveRight();
@@ -53,25 +65,17 @@ class SmallChicken extends MovableObject{
             if (this.canJump()) {
                 this.jump();
             }
-        }, 1000);
+        }, 1000 / 60);
     }
 
 
-    setDirection() {
-        if (this.otherDirection)
-            this.otherDirection = false
-        else if (!this.otherDirection)
-            this.otherDirection = true;
+    canJump() {
+        return !this.isAboveGround() && !this.isDead();
     }
 
     
     playDead() {
         this.playAnimation(this.IMAGES_DEAD);
         this.speed = 0;
-    }
-
-
-    canJump() {
-        return !this.isAboveGround() && !this.isDead()
     }
 }
