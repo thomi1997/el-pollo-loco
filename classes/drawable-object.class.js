@@ -51,6 +51,7 @@ class DrawableObject {
         this.drawCoins(ctx);    
     }
 
+
     drawCharacter(ctx) {
         if (this instanceof Character) {
             ctx.beginPath();
@@ -60,6 +61,7 @@ class DrawableObject {
             ctx.stroke();
         }
     }
+
 
     drawBoss(ctx) {
         if (this instanceof Endboss) {
@@ -71,6 +73,7 @@ class DrawableObject {
         }
     }
 
+    
     drawChicken(ctx) {
         if (this instanceof Chicken) {
             ctx.beginPath();

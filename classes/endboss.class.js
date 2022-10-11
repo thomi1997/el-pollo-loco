@@ -3,9 +3,8 @@ class Endboss extends MovableObject {
     y = -40;
     height = 500;
     width = 300;
-    energy = 20;
-    speed = 1.5;
-    hittingBoss = false;
+    energy = 100;
+    speed = 0.5;
 
 
     IMAGES_WALKING = [
@@ -54,49 +53,66 @@ class Endboss extends MovableObject {
     ];
 
 
+    offset = {
+        top: 100,
+        left: 30,
+        right: 30,
+        bottom: 30
+    };
+
+
     constructor() {
-        super().loadImage(this.IMAGES_WALKING[0]);
-        this.loadImages(this.IMAGES_WALKING);
+        super().loadImage(this.IMAGES_ALERT[0]);
         this.loadImages(this.IMAGES_ALERT);
+        this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_ATTACK);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
-        this.x = 7500;
+        this.x = 7200;
         this.animate();
     }
 
 
     animate() {
         setInterval(() => {
-            if (this.energy <= 0) this.playDead();
-            if (this.hittingBoss) {
-                this.playHurt();
-                this.bossHitAnimation();
-            } else if (this.energy < 100 && this.energy > 0) {
-                this.playHurt();
-                this.moveLeft();
-                this.speed += 0.2;
-            } else if (this.energy == 100) this.playWalking();
-        }, 200);
+            this.endbossAttacksPlay();
+        }, 100);
+    }
+
+
+    playHurt() {
+        this.playAnimation(this.IMAGES_HURT);
+        this.speed += 0.05;
+        setInterval(() => {
+            this.moveLeft(); 
+        }, 300);
+    }
+
+
+    endbossAttacksPlay() {
+        if (this.isDead()) {
+            this.playDead();
+            this.speed = 0;
+        } else if (this.isHurt()) {
+            this.playHurt();
+        } else {
+            this.playAlert();
+        }
     }
 
 
     playDead() {
-        setInterval(() => {
-            this.playAnimation(this.IMAGES_DEAD);
-        }, 1500);
+        this.playAnimation(this.IMAGES_DEAD);
     }
-        /*
-        setTimeout(() => {
-            winScreen();
-            world.backgroundMusic.pause();
-        }, 700)*/
+    /*
+    setTimeout(() => {
+        winScreen();
+        world.backgroundMusic.pause();
+    }, 700)*/
 
 
     playWalking() {
-        setInterval(() => {
-            this.playAnimation(this.IMAGES_WALKING);
-        }, 1000);
+        this.playAnimation(this.IMAGES_WALKING);
     }
 
 
@@ -105,25 +121,9 @@ class Endboss extends MovableObject {
     }
 
 
-    playHurt() {
-        this.playAnimation(this.IMAGES_HURT);
-    }
-
-
     playAlert() {
         this.playAnimation(this.IMAGES_ALERT);
     }
-
-    /*
-    characterMeetsEndboss() {
-        return world && this.calculatedistance() < 7450 && !this.isHurt();
-    }
-
-
-    calculatedistance(distance) {
-        distance = this.x - world.character.x
-        return distance;
-    }*/
 }
 
 
