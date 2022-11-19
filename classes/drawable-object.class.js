@@ -41,7 +41,7 @@ class DrawableObject {
         });
     }
 
-    
+    /*
     drawFrame(ctx) {
         this.drawCharacter(ctx);
         this.drawBoss(ctx);
@@ -115,5 +115,5 @@ class DrawableObject {
             ctx.rect(this.x + 42, this.y + 42, this.width - 85, this.height - 85);
             ctx.stroke();
         }
-    }
+    }*/
 }

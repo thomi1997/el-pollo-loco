@@ -1,5 +1,5 @@
 class Character extends MovableObject {
-    
+
     y = 200;
     height = 250;
     width = 150;
@@ -86,9 +86,9 @@ class Character extends MovableObject {
         }, 1000 / 60);
 
         setInterval(() => {
-            if (this.isDead()) {
+            if (this.CharacterIsDead()) {
                 this.playAnimation(this.IMAGES_DEAD);
-            } else if(this.isHurt()) {
+            } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);
@@ -100,6 +100,14 @@ class Character extends MovableObject {
                 }
             }
         }, 40);
+    }
+
+
+    CharacterIsDead() {
+        if (this.energy == 0) {
+        } else {
+            return this.energy == 0;
+        }
     }
 
 

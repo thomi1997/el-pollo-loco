@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'zabras';
-    src: url('fonts/zabars.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}  
+    src: url('fonts/zabars.ttf') format('truetype');
+    /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
 
 body {
     margin: 0;
@@ -28,6 +29,25 @@ canvas {
 
 @media only screen and (max-width: 760px) {
     canvas {
+        width: 100vw;
+    }
+
+    .mobile-gameplay {
+        z-index: 2;
+        width: 100%;
+        position: absolute;
+        display: flex !important;
+        justify-content: space-between;
+        bottom: 30px;
+    }
+
+    .you-win-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .you-lost-img {
+        object-fit: contain;
         width: 100%;
     }
 }
@@ -36,6 +56,47 @@ canvas {
     canvas {
         height: 100vh;
     }
+
+    .mobile-gameplay {
+        z-index: 2;
+        width: 100%;
+        position: absolute;
+        display: flex !important;
+        justify-content: space-between;
+        bottom: 5px;
+    }
+}
+
+.btn-back-to-menu-2.is-visible {
+    display: flex;
+}
+
+.btn-back-to-menu-2 {
+    display: none;
+    z-index: 10;
+    height: 50px;
+    width: 100px;
+    background-color: aqua;
+    cursor: pointer;
+    position: absolute;
+}
+
+.you-win-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    position: absolute;
+    display: none;
+}
+
+.you-lost-img.is-visible {
+    display: flex;
+}
+
+.you-lost-img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .padding-right-30 {
@@ -70,6 +131,10 @@ canvas {
     display: flex;
 }
 
+.d-none {
+    display: none
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -77,12 +142,7 @@ canvas {
 /*Mobiles Gameplay -----------------------------------------------------------------*/
 
 .mobile-gameplay {
-    height: 480px;
-    width: 720px;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    display: none;
 }
 
 .button {
@@ -100,7 +160,8 @@ canvas {
 .game-play {
     height: 100vh;
     width: 100vw;
-    background-image: url('img/icons_and_background/menu-background.jpg'); /*Attribution !!!*/
+    background-image: url('img/icons_and_background/menu-background.jpg');
+    /*Attribution !!!*/
     background-position: center;
     background-size: cover;
     display: flex;
@@ -109,15 +170,19 @@ canvas {
     position: absolute;
 }
 
-.game-menu {
+.game-menu.is-visible {
     display: none;
+}
+
+.game-menu {
+    display: flex;
     height: 100vh;
     width: 100vw;
-    background-image: url('img/icons_and_background/menu-background.jpg'); /*Attribution !!!*/
+    background-image: url('img/icons_and_background/menu-background.jpg');
+    /*Attribution !!!*/
     background-position: center;
     background-size: cover;
     position: relative;
-    /*display: flex;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -179,7 +244,7 @@ canvas {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
+
 }
 
 .controller-img {

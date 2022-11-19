@@ -13,7 +13,14 @@ function init() {
 
 
 function startGame() {
-    document.getElementById('start-screen').style = 'display: none;';
+    document.getElementById('start-screen').classList.add('is-visible');
+}
+
+
+function backToMenu() {
+    document.getElementById('start-screen').classList.remove('is-visible');
+    canvas = document.getElementById('canvas');
+    world = new World(canvas, keyboard);
 }
 
 

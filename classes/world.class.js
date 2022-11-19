@@ -13,6 +13,8 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
+    endBossActive = false;
+    lastEndBossActive = false;
 
 
     constructor(canvas, keyboard) {
@@ -68,7 +70,18 @@ class World {
         this.addToMap(this.statusbarHealth);
         this.addToMap(this.statusbarBottle);
         this.addToMap(this.statusbarCoins);
-        this.addToMap(this.statusbarEndboss);
+        this.drawBossStatusbar();
+    }
+
+
+    drawBossStatusbar() {
+        if(this.character.x > 5500) {
+            this.endBossActive = true;
+            this.addToMap(this.statusbarEndboss);
+        } 
+            if(this.endBossActive != this.lastEndBossActive) {
+                this.addToMap(this.statusbarEndboss);
+            }
     }
 
 
@@ -83,7 +96,7 @@ class World {
             this.flipImage(mo);
         }
         mo.draw(this.ctx);
-        mo.drawFrame(this.ctx);
+        /*mo.drawFrame(this.ctx);*/
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
