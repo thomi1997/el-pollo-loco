@@ -1,10 +1,14 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+intervalIds = [];
 
 
 
 function init() {
+    document.getElementById('start-screen').innerHTML = startScreenHtml();
+    document.getElementById('control').innerHTML = controlSectionHtml();
+    document.getElementById('mobile-gameplay').innerHTML = mobileGameplay();
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     mobileGamePlay();
@@ -12,15 +16,40 @@ function init() {
 }
 
 
+function setStoppableInterval(fn, time) {
+    let id = setInterval(fn, time);
+    intervalIds.push(id);
+}
+
+
+function stopGame() {
+    intervalIds.forEach(clearInterval);
+}
+
+
 function startGame() {
     document.getElementById('start-screen').classList.add('is-visible');
+    document.getElementById('win-screen').classList.add('is-not-visible');
+    document.getElementById('game-over-screen').classList.add('is-not-visible');
+}
+
+
+function winScreen() {
+    document.getElementById('win-screen').innerHTML = winScreenHtml();
+    document.getElementById('win-screen').classList.remove('is-not-visible');
+}
+
+
+function gameOverScreen() {
+    document.getElementById('game-over-screen').innerHTML = gameOverScreenHtml();
+    document.getElementById('game-over-screen').classList.remove('is-not-visible');
 }
 
 
 function backToMenu() {
+    location.reload();
+    document.getElementById('win-screen').classList.add('d-none');
     document.getElementById('start-screen').classList.remove('is-visible');
-    canvas = document.getElementById('canvas');
-    world = new World(canvas, keyboard);
 }
 
 

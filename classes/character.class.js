@@ -7,6 +7,7 @@ class Character extends MovableObject {
     bottle = 0;
     coin = 0;
     world;
+    characterIsDead = false;
 
     offset = {
         top: 125,
@@ -87,7 +88,6 @@ class Character extends MovableObject {
 
         setInterval(() => {
             if (this.CharacterIsDead()) {
-                this.playAnimation(this.IMAGES_DEAD);
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else if (this.isAboveGround()) {
@@ -105,8 +105,14 @@ class Character extends MovableObject {
 
     CharacterIsDead() {
         if (this.energy == 0) {
+            this.playAnimation(this.IMAGES_DEAD);
         } else {
             return this.energy == 0;
+        }
+
+        if (!this.characterIsDead) {
+            this.characterIsDead = true;
+            gameOverScreen();
         }
     }
 

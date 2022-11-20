@@ -4,6 +4,7 @@ class Endboss extends MovableObject {
     height = 500;
     width = 300;
     speed = 0.5;
+    bossDead = false;
 
 
     IMAGES_WALKING = [
@@ -83,15 +84,17 @@ class Endboss extends MovableObject {
         this.playAnimation(this.IMAGES_HURT);
         /*this.speed += 0.05;*/
         setInterval(() => {
-            this.moveLeft(); 
+            this.moveLeft();
         }, 300);
     }
 
 
     endbossAttacksPlay() {
         if (this.isDead()) {
-            this.playDead();
+            this.playAnimation(this.IMAGES_DEAD);
+            this.endGame();
             this.speed = 0;
+            this.bossDead = true;
         } else if (this.isHurt()) {
             this.playHurt();
         } else {
@@ -99,15 +102,13 @@ class Endboss extends MovableObject {
         }
     }
 
-
-    playDead() {
-        this.playAnimation(this.IMAGES_DEAD);
+    
+    endGame() {
+        if (!this.bossDead) {
+            this.bossDead = true;
+            winScreen();
+        }
     }
-    /*
-    setTimeout(() => {
-        winScreen();
-        world.backgroundMusic.pause();
-    }, 700)*/
 
 
     playWalking() {

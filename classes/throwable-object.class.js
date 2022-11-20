@@ -38,7 +38,7 @@ class ThrowableObject extends MovableObject {
 
     throw() {
         this.applyGravity();
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.otherDirection) {
                 this.moveLeft();
             }
