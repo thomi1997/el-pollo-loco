@@ -1,0 +1,216 @@
+/*------------------------------------------------------Media Canvas--------------------------------------------------------*/
+
+@media only screen and (max-width: 760px) {
+    canvas {
+        width: 100vw;
+    }
+
+    .mobile-gameplay {
+        z-index: 1;
+        width: 100%;
+        position: absolute;
+        display: flex !important;
+    }
+
+    .you-win-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .you-lost-img {
+        object-fit: contain;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    canvas {
+        height: 100vh;
+    }
+    
+    .mobile-gameplay {
+        z-index: 1;
+        width: 100%;
+        position: absolute;
+        display: flex !important;
+    }
+
+    .btn-fullscreen-and-sound {
+        bottom: 125px !important;
+    }
+
+    .all-game-keys {
+        top: 118px !important;
+    }
+}
+
+/*------------------------------------------------------Media Canvas End--------------------------------------------------------*/
+
+/*------------------------------------------------------Game Buttons--------------------------------------------------------*/
+
+@media (max-width:600px) {
+
+    h1 {
+        font-size: 80px;
+    }
+
+    .sound-on {
+        height: 60px;
+    }
+
+    .control-button {
+        height: 60px;
+    }
+
+    .play-button {
+        height: 60px;
+    }
+}
+
+@media (max-height:450px) {
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .sound-on {
+        height: 60px;
+    }
+
+    .control-button {
+        height: 60px;
+    }
+
+    .play-button {
+        height: 60px;
+    }
+}
+
+@media (max-width:400px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .sound-on {
+        height: 40px;
+    }
+
+    .control-button {
+        height: 40px;
+        margin: 0px;
+    }
+
+    .play-button {
+        height: 40px;
+    }
+}
+
+@media (max-height:370px) {
+    .btn-fullscreen-and-sound {
+        bottom: 100px !important;
+    }
+
+    .all-game-keys {
+        top: 100px !important;
+    }
+}
+
+@media (max-height:320px) {
+    .btn-fullscreen-and-sound {
+        bottom: 70px !important;
+    }
+
+    .all-game-keys {
+        top: 70px !important;
+    }
+}
+
+@media (max-width:265px) {
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/*------------------------------------------------------Game Buttons End--------------------------------------------------------*/
+
+/*------------------------------------------------------Control Guide--------------------------------------------------------*/
+
+@media (max-height:850px) {
+    .control-section {
+        height: 80% !important;
+        overflow-y: scroll;
+    }
+
+    .flex-direction-boxes {
+        margin-bottom: 15px;
+    }
+
+    .control-guide {
+        margin-top: -20px;
+    }
+}
+
+@media (max-width:700px) {
+
+    .control-section {
+        width: 98%;
+        height: 70%;
+    }
+
+    .controller-img {
+        margin-bottom: 15px;
+    }
+
+    .control-guide {
+        flex-direction: column;
+    }
+
+    .box-right {
+        margin-right: 0px;
+    }
+
+    .margin-bottum-15 {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width:500px) {
+
+    .control-section {
+        width: 97%;
+    }
+}
+
+@media (max-width:420px) {
+
+    .control-section {
+        width: 97%;
+        overflow-y: scroll;
+    }
+
+    .controller-img {
+        height: 100px;
+    }
+
+    .flex-direction-boxes {
+        flex-direction: column;
+    }
+
+    .box-left {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+
+    .box-right {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width:340px) {
+    .control-section {
+        width: 95%;
+    }
+}
+/*------------------------------------------------------Control Guide End--------------------------------------------------------*/

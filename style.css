@@ -28,69 +28,68 @@ canvas {
     z-index: 0;
 }
 
-@media only screen and (max-width: 760px) {
-    canvas {
-        width: 100vw;
-    }
+/*------------------------------------------------------free use of Css Classes--------------------------------------------------------*/
 
-    .mobile-gameplay {
-        z-index: 1;
-        width: 100%;
-        position: absolute;
-        display: flex !important;
-    }
-
-    .you-win-img {
-        height: 100%;
-        width: 100%;
-    }
-
-    .you-lost-img {
-        object-fit: contain;
-        width: 100%;
-    }
+.width-100 {
+    width: 100%;
 }
 
-@media only screen and (max-height: 480px) {
-    canvas {
-        height: 100vh;
-    }
-    
-    .mobile-gameplay {
-        z-index: 1;
-        width: 100%;
-        position: absolute;
-        display: flex !important;
-    }
-
-    .btn-fullscreen-and-sound {
-        bottom: 125px !important;
-    }
-
-    .all-game-keys {
-        top: 118px !important;
-    }
+.you-lost-img {
+    margin-top: 50px;
+    height: 250px;
 }
 
-@media (max-height:370px) {
-    .btn-fullscreen-and-sound {
-        bottom: 100px !important;
-    }
-
-    .all-game-keys {
-        top: 100px !important;
-    }
+.padding-right-30 {
+    padding-right: 30px;
 }
 
-@media (max-height:320px) {
-    .btn-fullscreen-and-sound {
-        bottom: 70px !important;
-    }
-
-    .all-game-keys {
-        top: 70px !important;
-    }
+.margin-right-15 {
+    margin-right: 15px;
 }
+
+.margin-left-15 {
+    margin-left: 15px;
+}
+
+.margin-bottum-15 {
+    margin-bottom: 15px;
+}
+
+.f-d-column {
+    flex-direction: column;
+}
+
+.align-items {
+    align-items: center;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.j-c-center {
+    justify-content: center;
+}
+
+.a-i-center {
+    align-items: center;
+}
+
+.d-none {
+    display: none
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/*------------------------------------------------------free use of Css Classes End--------------------------------------------------------*/
+
+/*------------------------------------------------------templates Win and Lose--------------------------------------------------------*/
 
 .btn-back-to-menu:hover {
     background-color: #eeee6e;
@@ -150,175 +149,9 @@ canvas {
     border: 10px;
 }
 
-.width-100 {
-    width: 100%;
-}
+/*------------------------------------------------------templates Win and Lose End--------------------------------------------------------*/
 
-.you-lost-img {
-    margin-top: 50px;
-    height: 250px;
-}
-
-.padding-right-30 {
-    padding-right: 30px;
-}
-
-.margin-right-15 {
-    margin-right: 15px;
-}
-
-.margin-left-15 {
-    margin-left: 15px;
-}
-
-.margin-bottum-15 {
-    margin-bottom: 15px;
-}
-
-.f-d-column {
-    flex-direction: column;
-}
-
-.align-items {
-    align-items: center;
-}
-
-.flex-start {
-    justify-content: flex-start;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.j-c-center {
-    justify-content: center;
-}
-
-.a-i-center {
-    align-items: center;
-}
-
-.d-none {
-    display: none
-}
-
-.cursor-pointer {
-    cursor: pointer;
-}
-
-/*Mobiles Gameplay -----------------------------------------------------------------*/
-
-.mobile-gameplay {
-    display: none;
-}
-
-.button {
-    height: 50px;
-}
-
-.btn-left-and-right {
-    display: flex;
-}
-
-.btn-jump-and-throw {
-    display: flex;
-}
-
-.all-game-keys {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-    top: 145px;
-}
-
-.btn-fullscreen-and-sound {
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    width: 100%;
-    bottom: 145px;
-}
-
-.fullscreen-class {
-    width: 100%;
-    height: 100vh;
-}
-
-.game-play {
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    background-image: url('img/icons_and_background/menu-background.jpg');
-    /*Attribution !!!*/
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
-
-.game-menu.is-visible {
-    display: none;
-}
-
-.game-menu {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
-    background-image: url('img/icons_and_background/menu-background.jpg');
-    /*Attribution !!!*/
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.gameplay-icons {
-    display: flex;
-}
-
-.control-button {
-    height: 100px;
-    margin-left: 30px;
-    margin-right: 30px;
-    fill: #FFCC99;
-    transition: all 300ms ease-in-out;
-}
-
-.control-button:hover {
-    fill: #FFCC99;
-    transform: scale(1.2);
-}
-
-.play-button {
-    height: 100px;
-    margin-left: 30px;
-    fill: rgb(68, 119, 32);
-    transition: all 300ms ease-in-out;
-}
-
-.play-button:hover {
-    fill: rgb(88, 158, 39);
-    transform: scale(1.2);
-}
-
-.sound-on {
-    height: 100px;
-    margin-right: 30px;
-    fill: rgb(254, 252, 169);
-    transition: all 300ms ease-in-out;
-}
-
-.sound-on:hover {
-    fill: rgb(255, 247, 131);
-    transform: scale(1.2);
-}
+/*------------------------------------------------------Control Section--------------------------------------------------------*/
 
 .control-section {
     display: none;
@@ -329,7 +162,7 @@ canvas {
     border: solid 5px rgb(255, 221, 147);
     border-radius: 25px;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 }
 
 .control-guide {
@@ -392,148 +225,4 @@ canvas {
     margin-top: 20px;
 }
 
-/* Game MENÜ -----------------------------------------------------------------*/
-
-@media (max-height:450px) {
-
-    h1 {
-        font-size: 60px;
-    }
-
-    .sound-on {
-        height: 60px;
-    }
-
-    .control-button {
-        height: 60px;
-    }
-
-    .play-button {
-        height: 60px;
-    }
-}
-
-@media (max-width:600px) {
-
-    h1 {
-        font-size: 80px;
-    }
-
-    .sound-on {
-        height: 60px;
-    }
-
-    .control-button {
-        height: 60px;
-    }
-
-    .play-button {
-        height: 60px;
-    }
-}
-
-@media (max-width:400px) {
-
-    h1 {
-        font-size: 50px;
-    }
-
-    .sound-on {
-        height: 40px;
-    }
-
-    .control-button {
-        height: 40px;
-        margin: 0px;
-    }
-
-    .play-button {
-        height: 40px;
-    }
-}
-
-@media (max-width:265px) {
-
-    h1 {
-        font-size: 30px;
-    }
-}
-
-/* Controll Guide -----------------------------------------------------------------*/
-
-@media (max-height:850px) {
-    .control-section {
-        height: 80% !important;
-        overflow-y: scroll;
-    }
-
-    .flex-direction-boxes {
-        margin-bottom: 15px;
-    }
-
-    .control-guide {
-        margin-top: -20px;
-    }
-}
-
-@media (max-width:700px) {
-
-    .control-section {
-        width: 98%;
-        height: 70%;
-    }
-
-    .controller-img {
-        margin-bottom: 15px;
-    }
-
-    .control-guide {
-        flex-direction: column;
-    }
-
-    .box-right {
-        margin-right: 0px;
-    }
-
-    .margin-bottum-15 {
-        margin-bottom: 12px;
-    }
-}
-
-@media (max-width:500px) {
-
-    .control-section {
-        width: 97%;
-    }
-}
-
-@media (max-width:420px) {
-
-    .control-section {
-        width: 97%;
-        overflow-y: scroll;
-    }
-
-    .controller-img {
-        height: 100px;
-    }
-
-    .flex-direction-boxes {
-        flex-direction: column;
-    }
-
-    .box-left {
-        margin-right: 0px;
-        margin-bottom: 15px;
-    }
-
-    .box-right {
-        margin-bottom: 15px;
-    }
-}
-
-@media (max-width:340px) {
-    .control-section {
-        width: 95%;
-    }
-}
+/*------------------------------------------------------Control Section End--------------------------------------------------------*/
