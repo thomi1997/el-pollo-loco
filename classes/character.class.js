@@ -3,7 +3,7 @@ class Character extends MovableObject {
     y = 200;
     height = 250;
     width = 150;
-    speed = 10;
+    speed = 8;
     bottle = 0;
     coin = 0;
     world;
@@ -69,7 +69,7 @@ class Character extends MovableObject {
 
 
     animate() {
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                 this.moveRight();
                 this.otherDirection = false;
@@ -86,7 +86,7 @@ class Character extends MovableObject {
             this.world.camera_x = -this.x + 120;
         }, 1000 / 60);
 
-        setInterval(() => {
+        setStoppableInterval(() => {
             if (this.CharacterIsDead()) {
             } else if (this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
@@ -110,15 +110,21 @@ class Character extends MovableObject {
             return this.energy == 0;
         }
 
-        if (!this.characterIsDead) {
-            this.characterIsDead = true;
-            gameOverScreen();
-        }
+        setTimeout(() => {
+            stopGame();
+        }, 500);
+
+        setTimeout(() => {
+            if (!this.characterIsDead) {
+                this.characterIsDead = true;
+                gameOverScreen();
+            }
+        }, 2000);
     }
 
 
     jump() {
-        this.speedY = 20;
+        this.speedY = 16.5;
     }
 
 

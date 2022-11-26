@@ -81,8 +81,12 @@ class Endboss extends MovableObject {
 
 
     playHurt() {
-        this.playAnimation(this.IMAGES_HURT);
-        /*this.speed += 0.05;*/
+        if (this.playAnimation(this.IMAGES_HURT)) {
+        }else {
+            this.playAttack();
+            this.speed += 0.05;
+        }
+
         setInterval(() => {
             this.moveLeft();
         }, 300);
