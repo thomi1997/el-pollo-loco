@@ -6,8 +6,10 @@ class SmallChicken extends MovableObject{
 
     energy = 1;
     isHittet = false;
+
     speed = 25;
     speedY = 40;
+
     ground = 370;
     otherDirection = Math.random() < 0.5;
 
@@ -35,6 +37,14 @@ class SmallChicken extends MovableObject{
     }
 
 
+    animate() {
+        setInterval (() => this.setDirection(), 10000);
+        setInterval(() => this.canSmallChickenTurnOver(), 1000 / 60);
+        setInterval(() => this.smallChickenReallyDead(), 150);
+        setInterval(() => this.canReallyJump(), 1000 / 60);
+    }
+
+
     setDirection() {
         if (this.otherDirection)
             this.otherDirection = false
@@ -43,39 +53,38 @@ class SmallChicken extends MovableObject{
     }
 
 
-    animate() {
-        setInterval (() => this.setDirection(), 10000);
-        setInterval(() => {
-            if (this.otherDirection) {
-                this.moveRight();
-            } else {
-                this.moveLeft();
-            }
-        }, 1000 / 60);
+    canSmallChickenTurnOver() {
+        if (this.otherDirection) {
+            this.moveRight();
+        } else {
+            this.moveLeft();
+        }
+    }
 
-        setInterval(() => {
-            if (this.isDead()) {
-                this.playDead();
-            } else {
-                this.playAnimation(this.IMAGES_WALKING);
-            }
-        }, 150);
 
-        setInterval(() => {
-            if (this.canJump()) {
-                this.jump();
-            }
-        }, 1000 / 60);
+    smallChickenReallyDead() {
+        if (this.isDead()) {
+            this.playDead();
+        } else {
+            this.playAnimation(this.IMAGES_WALKING);
+        }
+    }
+
+
+    playDead() {
+        this.playAnimation(this.IMAGES_DEAD);
+        this.speed = 0;
+    }
+
+
+    canReallyJump() {
+        if (this.canJump()) {
+            this.jump();
+        }
     }
 
 
     canJump() {
         return !this.isAboveGround() && !this.isDead();
-    }
-
-    
-    playDead() {
-        this.playAnimation(this.IMAGES_DEAD);
-        this.speed = 0;
     }
 }

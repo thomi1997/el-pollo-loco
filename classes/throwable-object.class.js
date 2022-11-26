@@ -36,30 +36,39 @@ class ThrowableObject extends MovableObject {
     }
 
 
-    throw() {
-        this.applyGravity();
-        setStoppableInterval(() => {
-            if (this.otherDirection) {
-                this.moveLeft();
-            }
-
-            if (!this.otherDirection) {
-                this.moveRight();
-            }
-
-            if (this.bottleBreak) {
-                this.playAnimation(this.THROWN_BOTTLE_BREAKS);
-            }else {
-                this.playAnimation(this.THROWN_BOTTLE);
-            }
-        }, 60 / 1000);
-    }
-
-
     setDirection() {
         if (world.character.otherDirection)
             this.otherDirection = true;
         if (!world.character.otherDirection)
             this.otherDirection = false;
+    }
+
+
+    throw() {
+        this.applyGravity();
+        setStoppableInterval(() => this.canThrowLeftOrRight(), 60 / 1000);
+    }
+
+
+    canThrowLeftOrRight() {
+        this.throwBottleLeftAndRight();
+        this.throwBottleAnimation();
+    }
+
+
+    throwBottleLeftAndRight() {
+        if (this.otherDirection)
+            this.moveLeft();
+        if (!this.otherDirection)
+            this.moveRight();
+    }
+
+
+    throwBottleAnimation() {
+        if (this.bottleBreak) {
+            this.playAnimation(this.THROWN_BOTTLE_BREAKS);
+        } else {
+            this.playAnimation(this.THROWN_BOTTLE);
+        }
     }
 }

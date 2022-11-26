@@ -86,10 +86,7 @@ class Endboss extends MovableObject {
             this.playAttack();
             this.speed += 0.05;
         }
-
-        setInterval(() => {
-            this.moveLeft();
-        }, 300);
+        setInterval(() => this.moveLeft(), 300);
     }
 
 

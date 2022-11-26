@@ -1,22 +1,28 @@
 class MovableObject extends DrawableObject {
     
     speed = 0.15;
-    otherDirection = false;
     speedY = 0;
+
+    otherDirection = false;
     acceleration = 1;
+
     energy = 100;
     lastHit = 0;
+    
     ground = 200;
     bottleTimePassed = 2;
 
 
     applyGravity() {
-        setInterval(() => {
-            if (this.isAboveGround() || this.speedY > 0) {
-                this.y -= this.speedY;
-                this.speedY -= this.acceleration;
-            }
-        }, 1000 / 25);
+        setInterval(() => this.checkGravity(), 1000 / 25);
+    }
+
+
+    checkGravity() {
+        if (this.isAboveGround() || this.speedY > 0) {
+            this.y -= this.speedY;
+            this.speedY -= this.acceleration;
+        }
     }
 
 
