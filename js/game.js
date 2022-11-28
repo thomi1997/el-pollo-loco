@@ -2,8 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let intervalIds = [];
-
-
+let soundsPaused = false;
 
 
 function init() {
@@ -13,7 +12,38 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     mobileGamePlay();
-    console.log('My Character is', world['character']);
+    /*console.log('My Character is', world['character']);*/
+}
+
+
+function stopSounds() {
+    if (!soundsPaused) {
+        svgSoundOn();
+    } else {
+        svgSoundOff();
+    }
+}
+
+
+function svgSoundOn() {
+    soundsPaused = true;
+    document.getElementById('inGameSoundOff').classList.add('d-flex');
+    document.getElementById('inGameSoundOff').classList.remove('d-none');
+    document.getElementById('inGameSoundOn').classList.add('d-none');
+    document.getElementById('menuSoundOff').classList.add('d-flex');
+    document.getElementById('menuSoundOff').classList.remove('d-none');
+    document.getElementById('menuSoundOn').classList.add('d-none');
+}
+
+
+function svgSoundOff() {
+    soundsPaused = false;
+    document.getElementById('menuSoundOff').classList.add('d-none');
+    document.getElementById('menuSoundOn').classList.remove('d-none');
+    document.getElementById('menuSoundOn').classList.add('d-flex');
+    document.getElementById('inGameSoundOff').classList.add('d-none');
+    document.getElementById('inGameSoundOn').classList.remove('d-none');
+    document.getElementById('inGameSoundOn').classList.add('d-flex');
 }
 
 
@@ -67,16 +97,16 @@ function closeController() {
 
 function startFullScreen() {
     let isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
-      (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-      (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-      (document.msFullscreenElement && document.msFullscreenElement !== null);
+        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+        (document.msFullscreenElement && document.msFullscreenElement !== null);
     let elem = document.getElementById('fullscreen');
     if (!isInFullScreen) {
         openFullscreen(elem);
-    }else{
+    } else {
         closeFullscreen(elem);
     }
-    
+
 }
 
 
@@ -91,7 +121,7 @@ function openFullscreen(elem) {
     } else if (elem.msRequestFullscreen) {
         elem.msRequestFullscreen();
     }
-  }
+}
 
 
 function closeFullscreen() {
@@ -115,11 +145,11 @@ window.addEventListener('keydown', (event) => {
         keyboard.LEFT = true;
     if (event.keyCode == 38)
         keyboard.UP = true;
-    if (event.keyCode == 40) 
+    if (event.keyCode == 40)
         keyboard.DOWN = true;
     if (event.keyCode == 32)
         keyboard.SPACE = true;
-    if (event.keyCode == 68) 
+    if (event.keyCode == 68)
         keyboard.D = true;
 });
 
@@ -129,7 +159,7 @@ window.addEventListener('keyup', (event) => {
         keyboard.RIGHT = false;
     if (event.keyCode == 37)
         keyboard.LEFT = false;
-    if (event.keyCode == 38) 
+    if (event.keyCode == 38)
         keyboard.UP = false;
     if (event.keyCode == 40)
         keyboard.DOWN = false;

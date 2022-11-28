@@ -6,6 +6,9 @@ class Endboss extends MovableObject {
     speed = 0.5;
     bossDead = false;
 
+    winSound = new Audio('audio/win.mp3');
+    endBossSound = new Audio('audio/endboss.mp3');
+
 
     IMAGES_WALKING = [
         'img/4_enemie_boss_chicken/1_walk/G1.png',
@@ -93,11 +96,13 @@ class Endboss extends MovableObject {
     endbossAttacksPlay() {
         if (this.isDead()) {
             this.playAnimation(this.IMAGES_DEAD);
+            world.playSounds(this.winSound, 1);
             this.endGame();
             this.speed = 0;
             this.bossDead = true;
         } else if (this.isHurt()) {
             this.playHurt();
+            world.playSounds(this.endBossSound, 1)
         } else {
             this.playAlert();
         }

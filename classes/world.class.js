@@ -7,6 +7,10 @@ class World {
     endboss = [new Endboss()];
     statusbarEndboss = new StatusbarEndboss();
 
+    bottleBroken = new Audio('audio/bottle-broken.mp3');
+    chickenIsDeadSound = new Audio('audio/chicken-dead.mp3');
+    backgroundSound = new Audio('audio/background-music.mp3');
+
     throwableObjects = [];
     camera_x = 0;
     endBossActive = false;
@@ -33,6 +37,17 @@ class World {
 
     setWorld() {
         this.character.world = this;
+    }
+
+
+    playSounds(sound, volume) {
+        if (!soundsPaused) {
+            sound.play();
+            sound.volume = volume;
+            soundsPaused = false;
+        } else if (soundsPaused = true) {
+            sound.pause();
+        }
     }
 
 
@@ -117,7 +132,8 @@ class World {
             this.character.speedY < 0 &&
             this.character.isAboveGround() &&
             !this.character.jump() &&
-            !(object.isDead())
+            !(object.isDead()) &&
+            !world.playSounds(this.chickenIsDeadSound, 1);
     }
 
 
@@ -181,6 +197,7 @@ class World {
     hitEnemy(enemy) {
         if (!(enemy instanceof Endboss)) {
             enemy.kill();
+            world.playSounds(this.chickenIsDeadSound, 1);
             setTimeout(() => this.deleteEnemy(enemy), 1000);
         } else {
             enemy.hit();
@@ -243,6 +260,7 @@ class World {
 
     chickenWasHit(bottle, enemy) {
         if (this.bottleHitsEnemy(bottle, enemy)) {
+            world.playSounds(this.bottleBroken, 1);
             this.hitEnemy(enemy);
             bottle.bottleBreak = true;
         }
@@ -283,7 +301,7 @@ class World {
     collectBottle(index) {
         this.character.collectBottle();
         this.statusbarBottle.setPercentage(this.character.bottle);
-        this.deleteCoinOrBottle(index);    
+        this.deleteCoinOrBottle(index);
     }
 
     deleteCoinOrBottle(index) {
