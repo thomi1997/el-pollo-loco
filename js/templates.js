@@ -105,7 +105,6 @@ function controlSectionHtml() {
 
 function mobileGameplay() {
     return /*html*/ `
-        <div class="width-100">
             <div class="btn-fullscreen-and-sound">
                 <div class="margin-right-15">
                     <svg class="button" id="inGameSoundOn" onclick="stopSounds()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -160,7 +159,6 @@ function mobileGameplay() {
                     </div>
                 </div>
             </div>
-        </div>
     `;
 }
 

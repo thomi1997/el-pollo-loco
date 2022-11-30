@@ -108,8 +108,7 @@ class Character extends MovableObject {
 
 
     animate() {
-        setInterval(() => this.fallAsSleepCounter(), 1000);
-
+        setStoppableInterval(() => this.fallAsSleepCounter(), 1000);
         setStoppableInterval(() => {
             this.isWalkingSound.pause();
             this.characterCanMoveRight();
@@ -137,13 +136,14 @@ class Character extends MovableObject {
             world.playSounds(this.snoringSound, 1);
         } else if (this.halfSleep()) {
             this.playAnimation(this.IMAGES_IDLE);
+        } else {
+            this.snoringSound.pause();
         }
     }
 
 
     fallAsSleepCounter() {
         this.sleepCount++;
-        console.log(this.sleepCount);
     }
 
 
@@ -206,6 +206,7 @@ class Character extends MovableObject {
     walkLeftOrRight() {
         if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
             this.playAnimation(this.IMAGES_WALKING);
+            this.readyToSleep = true;
         }
     }
 

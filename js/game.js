@@ -2,7 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 let intervalIds = [];
-let soundsPaused = false;
+let soundsPaused = true;
 
 
 function init() {
@@ -59,9 +59,10 @@ function stopGame() {
 
 
 function startGame() {
-    document.getElementById('start-screen').classList.add('is-visible');
+    document.getElementById('start-screen').classList.add('is-not-visible');
     document.getElementById('win-screen').classList.add('is-not-visible');
     document.getElementById('game-over-screen').classList.add('is-not-visible');
+    soundsPaused = false;
 }
 
 
@@ -81,17 +82,18 @@ function gameOverScreen() {
 function backToMenu() {
     location.reload();
     document.getElementById('win-screen').classList.add('d-none');
-    document.getElementById('start-screen').classList.remove('is-visible');
+    document.getElementById('start-screen').classList.remove('is-not-visible');
 }
 
 
 function controller() {
-    document.getElementById('control').style = 'display: flex;';
+    document.getElementById('control').classList.remove('d-none');
+    document.getElementById('control').classList.add('d-flex');
 }
 
 
 function closeController() {
-    document.getElementById('control').style = 'display: none;';
+    document.getElementById('control').classList.add('d-none');
 }
 
 

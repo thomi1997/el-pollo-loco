@@ -9,7 +9,7 @@ class World {
 
     bottleBroken = new Audio('audio/bottle-broken.mp3');
     chickenIsDeadSound = new Audio('audio/chicken-dead.mp3');
-    backgroundSound = new Audio('audio/background-music.mp3');
+    
 
     throwableObjects = [];
     camera_x = 0;

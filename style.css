@@ -154,7 +154,6 @@ canvas {
 /*------------------------------------------------------Control Section--------------------------------------------------------*/
 
 .control-section {
-    display: none;
     flex-direction: column;
     height: 50%;
     max-width: 100%;
