@@ -8,6 +8,7 @@ let soundsPaused = true;
 function init() {
     document.getElementById('start-screen').innerHTML = startScreenHtml();
     document.getElementById('control').innerHTML = controlSectionHtml();
+    document.getElementById('story').innerHTML = storySectionHtml();
     document.getElementById('mobile-gameplay').innerHTML = mobileGameplay();
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
@@ -30,17 +31,11 @@ function svgSoundOn() {
     document.getElementById('inGameSoundOff').classList.add('d-flex');
     document.getElementById('inGameSoundOff').classList.remove('d-none');
     document.getElementById('inGameSoundOn').classList.add('d-none');
-    document.getElementById('menuSoundOff').classList.add('d-flex');
-    document.getElementById('menuSoundOff').classList.remove('d-none');
-    document.getElementById('menuSoundOn').classList.add('d-none');
 }
 
 
 function svgSoundOff() {
     soundsPaused = false;
-    document.getElementById('menuSoundOff').classList.add('d-none');
-    document.getElementById('menuSoundOn').classList.remove('d-none');
-    document.getElementById('menuSoundOn').classList.add('d-flex');
     document.getElementById('inGameSoundOff').classList.add('d-none');
     document.getElementById('inGameSoundOn').classList.remove('d-none');
     document.getElementById('inGameSoundOn').classList.add('d-flex');
@@ -94,6 +89,17 @@ function controller() {
 
 function closeController() {
     document.getElementById('control').classList.add('d-none');
+}
+
+
+function openStory() {
+    document.getElementById('story').classList.add('d-flex');
+    document.getElementById('story').classList.remove('d-none');
+}
+
+
+function closeStory() {
+    document.getElementById('story').classList.add('d-none');
 }
 
 

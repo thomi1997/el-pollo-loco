@@ -5,6 +5,7 @@ class Endboss extends MovableObject {
     width = 300;
     speed = 0.5;
     bossDead = false;
+    energy = 100;
 
     winSound = new Audio('audio/win.mp3');
     endBossSound = new Audio('audio/endboss.mp3');
@@ -85,7 +86,7 @@ class Endboss extends MovableObject {
 
     playHurt() {
         if (this.playAnimation(this.IMAGES_HURT)) {
-        }else {
+        } else {
             this.playAttack();
             this.speed += 0.05;
         }
@@ -108,7 +109,7 @@ class Endboss extends MovableObject {
         }
     }
 
-    
+
     endGame() {
         if (!this.bossDead) {
             this.bossDead = true;

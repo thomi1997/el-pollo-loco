@@ -4,12 +4,12 @@ class World {
     statusbarHealth = new StatusbarHealth();
     statusbarBottle = new StatusbarBottle();
     statusbarCoins = new StatusbarCoins();
-    endboss = [new Endboss()];
+    endboss = new Endboss();
     statusbarEndboss = new StatusbarEndboss();
 
     bottleBroken = new Audio('audio/bottle-broken.mp3');
     chickenIsDeadSound = new Audio('audio/chicken-dead.mp3');
-    
+
 
     throwableObjects = [];
     camera_x = 0;
@@ -186,11 +186,19 @@ class World {
     }
 
 
+    energyReductionEndBoss() {
+        if (this.endboss.hit) {
+            this.endboss.hit();
+            this.statusbarEndboss.setPercentage(this.endboss.energy);
+        }
+    }
+
+
     characterAndEnemyCollides(enemy) {
         return this.character.isColliding(enemy) &&
             !this.character.isHurt() &&
             !enemy.isHurt() &&
-            !enemy.isDead()
+            !enemy.isDead();
     }
 
 
@@ -201,6 +209,7 @@ class World {
             setTimeout(() => this.deleteEnemy(enemy), 1000);
         } else {
             enemy.hit();
+            this.energyReductionEndBoss();
         }
     }
 

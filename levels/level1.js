@@ -147,6 +147,11 @@ function getBottles() {
         new Bottles(),
         new Bottles(),
         new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
+        new Bottles(),
         new Bottles()
     ]
 }

@@ -1,14 +1,14 @@
 class SmallChicken extends MovableObject{
 
-    y = 360;
+    speedY = 20;
+
     height = 75;
     width = 50;
 
     energy = 1;
     isHittet = false;
 
-    speed = 25;
-    speedY = 40;
+    speed = 20;
 
     ground = 370;
     otherDirection = Math.random() < 0.5;
@@ -31,7 +31,7 @@ class SmallChicken extends MovableObject{
         this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_DEAD);
         this.x = 4000 + Math.random() * 3000; // Zahl zwischen 200 und 700
-        this.speed = 0.5 + Math.random() * 0.8;
+        this.speed = 0.5 + Math.random() * 5;
         this.applyGravity();
         this.animate();
     }

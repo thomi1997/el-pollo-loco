@@ -1,5 +1,5 @@
 class MovableObject extends DrawableObject {
-    
+
     speed = 0.15;
     speedY = 0;
 
@@ -92,7 +92,7 @@ class MovableObject extends DrawableObject {
 
 
     jump() {
-        this.speedY = 20;
+        this.speedY = 17;
     }
 
 

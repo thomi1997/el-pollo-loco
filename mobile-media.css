@@ -70,7 +70,7 @@
         font-size: 80px;
     }
 
-    .sound-on {
+    .story-icon {
         height: 60px;
     }
 
@@ -89,7 +89,7 @@
         font-size: 60px;
     }
 
-    .sound-on {
+    .story-icon {
         height: 60px;
     }
 
@@ -108,7 +108,7 @@
         font-size: 50px;
     }
 
-    .sound-on {
+    .story-icon {
         height: 40px;
     }
 
@@ -155,7 +155,12 @@
 
 @media (max-height:850px) {
     .control-section {
-        height: 80%;
+        top: 24%;
+        height: 52%;
+        overflow-y: scroll;
+    }
+
+    .story-div {
         overflow-y: scroll;
     }
 
@@ -168,11 +173,20 @@
     }
 }
 
+@media (max-height:450px) {
+    
+    .control-section {
+        top: 0;
+        height: 100%;
+    }
+}
+
 @media (max-width:700px) {
 
     .control-section {
         width: 98%;
-        height: 70%;
+        height: 60%;
+        padding-bottom: 80px;
     }
 
     .controller-img {
@@ -190,6 +204,10 @@
     .margin-bottum-15 {
         margin-bottom: 12px;
     }
+
+    .story-section {
+        width: 90%;
+    }
 }
 
 @media (max-width:500px) {
@@ -203,6 +221,10 @@
 
     .control-section {
         width: 97%;
+        overflow-y: scroll;
+    }
+
+    .story-div {
         overflow-y: scroll;
     }
 

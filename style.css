@@ -16,6 +16,10 @@ h1 {
     text-shadow: 4px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+h2 {
+    font-size: 40px;
+}
+
 p {
     line-height: 0;
     font-size: 45px;
@@ -29,6 +33,10 @@ canvas {
 }
 
 /*------------------------------------------------------free use of Css Classes--------------------------------------------------------*/
+
+.text-center {
+    text-align: center;
+}
 
 .width-100 {
     width: 100%;
@@ -87,6 +95,10 @@ canvas {
     cursor: pointer;
 }
 
+.pos-fixed {
+    position: fixed;
+}
+
 /*------------------------------------------------------free use of Css Classes End--------------------------------------------------------*/
 
 /*------------------------------------------------------templates Win and Lose--------------------------------------------------------*/
@@ -131,6 +143,7 @@ canvas {
     border-radius: 10px;
     background-color: #FA453B;
     border: 10px;
+    z-index: 2;
 }
 
 .game-over-screen.is-not-visible {
@@ -147,6 +160,7 @@ canvas {
     border-radius: 10px;
     background-color: #FA453B;
     border: 10px;
+    z-index: 2;
 }
 
 /*------------------------------------------------------templates Win and Lose End--------------------------------------------------------*/
@@ -156,11 +170,11 @@ canvas {
 .control-section {
     flex-direction: column;
     height: 50%;
-    max-width: 100%;
     background-color: rgb(168, 115, 59);
     border: solid 5px rgb(255, 221, 147);
     border-radius: 25px;
     position: absolute;
+    top: 20%;
     z-index: 3;
 }
 
@@ -198,6 +212,7 @@ canvas {
 .close-icon {
     height: 50px;
     margin: 5px;
+    align-self: flex-start;
 }
 
 .close-icon:hover {
@@ -225,3 +240,22 @@ canvas {
 }
 
 /*------------------------------------------------------Control Section End--------------------------------------------------------*/
+
+/*------------------------------------------------------Story Section--------------------------------------------------------*/
+.story-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.story-section {
+    height: 70%;
+    width: 60%;
+    background-color: rgb(168, 115, 59);
+    border: solid 5px rgb(255, 221, 147);
+    border-radius: 25px;
+    position: absolute;
+    z-index: 3;
+}
+
+/*------------------------------------------------------Story Section End--------------------------------------------------------*/

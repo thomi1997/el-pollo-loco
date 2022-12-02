@@ -1,7 +1,7 @@
 class StatusbarEndboss extends DrawableObject {
 
   y = 0;
-  x = 500;
+  x = 250;
   width = 200;
   height = 60;
   percentage = 100;
@@ -13,7 +13,7 @@ class StatusbarEndboss extends DrawableObject {
     'img/7_statusbars/2_statusbar_endboss/blue/40.png',
     'img/7_statusbars/2_statusbar_endboss/blue/60.png',
     'img/7_statusbars/2_statusbar_endboss/blue/80.png',
-    'img/7_statusbars/2_statusbar_endboss/blue/100.png',
+    'img/7_statusbars/2_statusbar_endboss/blue/100.png'
   ];
 
 
