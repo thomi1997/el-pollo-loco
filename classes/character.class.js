@@ -221,6 +221,7 @@ class Character extends MovableObject {
     startGameOverScreen() {
         if (!this.characterIsDead) {
             this.characterIsDead = true;
+            this.isWalkingSound.pause();
             gameOverScreen();
         }
     }

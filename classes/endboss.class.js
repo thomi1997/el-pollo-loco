@@ -99,7 +99,7 @@ class Endboss extends MovableObject {
             this.endbossIsDead();
         } else if (this.isHurt()) {
             this.playHurt();
-            world.playSounds(this.endBossSound, 1)
+            world.playSounds(this.endBossSound, 0.2);
         } else {
             this.playAlert();
         }
@@ -107,8 +107,9 @@ class Endboss extends MovableObject {
 
 
     endbossIsDead() {
+        setInterval(() => world.playSounds(this.winSound, 0.2), 1000);
+        this.endBossSound.pause();
         this.playAnimation(this.IMAGES_DEAD);
-        world.playSounds(this.winSound, 1);
         this.endGame();
         this.speed = 0;
         this.bossDead = true;
@@ -118,6 +119,7 @@ class Endboss extends MovableObject {
     endGame() {
         if (!this.bossDead) {
             this.bossDead = true;
+            soundsPaused = true;
             winScreen();
         }
     }
