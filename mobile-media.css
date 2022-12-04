@@ -153,10 +153,16 @@
 
 /*------------------------------------------------------Control Guide--------------------------------------------------------*/
 
+@media (max-width:1050px) {
+    .story-div {
+        overflow-y: scroll;
+    }
+}
+
 @media (max-height:850px) {
     .control-section {
-        top: 24%;
-        height: 52%;
+        top: 0%;
+        height: 50%;
         overflow-y: scroll;
     }
 
@@ -176,8 +182,13 @@
 @media (max-height:450px) {
     
     .control-section {
-        top: 0;
-        height: 100%;
+        top: 0 !important;
+        height: 95% !important;
+        padding-bottom: 0px !important;
+    }
+
+    .story-section {
+        height: 95%;
     }
 }
 
@@ -247,6 +258,7 @@
 }
 
 @media (max-width:340px) {
+
     .control-section {
         width: 95%;
     }

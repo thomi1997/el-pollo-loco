@@ -112,10 +112,14 @@ function storySectionHtml() {
                     Story
                 </h1>
                 <h2>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Officia, odio. Ab atque iusto obcaecati soluta officiis 
-                    fugit? At dicta possimus, laboriosam beatae vero, nesciunt 
-                    accusantium quisquam minima, dolorem modi quaerat.
+                    Once upon a time there was a young wanderer named Pepe. 
+                    He wandered through the vastness of the deserts and must 
+                    take on very strong fighting chickens! The fighting chickens 
+                    have one weak point and that is, they are erärgisch 
+                    against Chilisouce. Sounds strange but is so haha. 
+                    That is why Pepe had to collect many chili bottles 
+                    before to be able to survive! Because to get out of 
+                    the desert Pepe must still pass the big crazy chicken.
                 </h2>
             </div>
         </div>
@@ -126,6 +130,20 @@ function storySectionHtml() {
 function mobileGameplay() {
     return /*html*/ `
             <div class="btn-fullscreen-and-sound">
+                <div class="margin-right-15">
+                    <svg class="music-on-button" id="inGameMusicOn" onclick="stopBackgroundMusic()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path 
+                            d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/>
+                    </svg>
+                </div>
+                <div class="margin-right-15">
+                    <svg class="music-off-button d-none" id="inGameMusicOff" onclick="stopBackgroundMusic()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path 
+                            d="M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/>
+                    </svg>
+                </div>
                 <div class="margin-right-15">
                     <svg class="control-button-ingame cursor-pointer" onclick="controller()" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 640 512">

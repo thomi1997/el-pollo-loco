@@ -9,6 +9,7 @@ class World {
 
     bottleBroken = new Audio('audio/bottle-broken.mp3');
     chickenIsDeadSound = new Audio('audio/chicken-dead.mp3');
+    backGroundSound = new Audio('audio/background-music.mp3');
 
 
     throwableObjects = [];
@@ -48,6 +49,24 @@ class World {
         } else if (soundsPaused = true) {
             sound.pause();
         }
+    }
+
+
+    playBackgroundMusic(music, volume) {
+        if (!musicPaused) {
+            music.play();
+            music.volume = volume;
+            musicPaused = false;
+        } else if (musicPaused = true) {
+            music.pause();
+        }
+    }
+
+
+    playMusic() {
+        setInterval(() => {
+            world.playBackgroundMusic(this.backGroundSound, 0.2);
+        }, 500);
     }
 
 
@@ -160,6 +179,7 @@ class World {
             this.checkThrowObjects();
             this.checkHasHitEnemy();
             this.checkCollectableObjects();
+            this.playMusic();
         }, 25);
     }
 
@@ -243,7 +263,6 @@ class World {
     }
 
 
-    // Flasche werfen
     throwBottle() {
         return this.keyboard.D &&
             this.character.bottle > 0 &&

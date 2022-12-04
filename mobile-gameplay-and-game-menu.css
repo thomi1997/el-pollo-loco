@@ -92,8 +92,17 @@
 
 .control-button-ingame {
     height: 50px;
-    fill: #FFCC99;
-    transition: all 300ms ease-in-out;
+    fill: rgb(132 183 15);
+}
+
+.music-on-button {
+    height: 50px;
+    fill: rgb(132 183 15);
+}
+
+.music-off-button {
+    height: 50px;
+    fill: rgb(132 183 15);
 }
 
 .play-button {

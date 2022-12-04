@@ -96,17 +96,22 @@ class Endboss extends MovableObject {
 
     endbossAttacksPlay() {
         if (this.isDead()) {
-            this.playAnimation(this.IMAGES_DEAD);
-            world.playSounds(this.winSound, 1);
-            this.endGame();
-            this.speed = 0;
-            this.bossDead = true;
+            this.endbossIsDead();
         } else if (this.isHurt()) {
             this.playHurt();
             world.playSounds(this.endBossSound, 1)
         } else {
             this.playAlert();
         }
+    }
+
+
+    endbossIsDead() {
+        this.playAnimation(this.IMAGES_DEAD);
+        world.playSounds(this.winSound, 1);
+        this.endGame();
+        this.speed = 0;
+        this.bossDead = true;
     }
 
 

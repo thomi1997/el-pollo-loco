@@ -169,12 +169,12 @@ canvas {
 
 .control-section {
     flex-direction: column;
-    height: 50%;
     background-color: rgb(168, 115, 59);
     border: solid 5px rgb(255, 221, 147);
     border-radius: 25px;
+    padding-bottom: 55px;
     position: absolute;
-    top: 20%;
+    top: 20% !important;
     z-index: 3;
 }
 
@@ -246,6 +246,7 @@ canvas {
     display: flex;
     flex-direction: column;
     align-items: center;
+    word-wrap: break-word;
 }
 
 .story-section {

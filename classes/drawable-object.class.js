@@ -8,7 +8,7 @@ class DrawableObject {
     imageCache = {};
     currentImage = 0;
 
-
+    
     offset = {
         top: 0,
         left: 0,
@@ -17,9 +17,14 @@ class DrawableObject {
     };
 
 
+    /**
+     * canvas and the objects are painted.
+     * @param {objects} ctx 
+     */
     draw(ctx) {
         try {
             ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+            /*this.drawFrame(ctx);*/
         } catch(e) {
             console.warn('Error is loading image', e);
             console.log('Could not load image', this.img.src);
@@ -27,12 +32,19 @@ class DrawableObject {
     }
 
 
+    /**
+     * an image is loaded.
+     * @param {imge} path 
+     */
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
     }
 
-
+    /**
+     * some images are loaded.
+     * @param {image} array 
+     */
     loadImages(array) {
         array.forEach((path) => {
             let img = new Image();
@@ -41,6 +53,10 @@ class DrawableObject {
         });
     }
 
+    /**
+     * the frames of the paintings are painted.
+     * @param {objects} ctx 
+     */
     /*
     drawFrame(ctx) {
         this.drawCharacter(ctx);

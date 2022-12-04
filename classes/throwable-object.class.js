@@ -36,6 +36,9 @@ class ThrowableObject extends MovableObject {
     }
 
 
+    /**
+     * setting the right direction.
+     */
     setDirection() {
         if (world.character.otherDirection)
             this.otherDirection = true;
@@ -44,6 +47,9 @@ class ThrowableObject extends MovableObject {
     }
 
 
+    /**
+     * throw bottle.
+     */
     throw() {
         this.applyGravity();
         setStoppableInterval(() => this.canThrowLeftOrRight(), 60 / 1000);

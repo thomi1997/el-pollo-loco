@@ -3,6 +3,7 @@ let world;
 let keyboard = new Keyboard();
 let intervalIds = [];
 let soundsPaused = true;
+let musicPaused = true;
 
 
 function init() {
@@ -23,6 +24,31 @@ function stopSounds() {
     } else {
         svgSoundOff();
     }
+}
+
+
+function stopBackgroundMusic() {
+    if (!musicPaused) {
+        svgMusicOn();
+    } else {
+        svgMusicOff();
+    }
+}
+
+
+function svgMusicOn() {
+    musicPaused = true;
+    document.getElementById('inGameMusicOff').classList.add('d-flex');
+    document.getElementById('inGameMusicOff').classList.remove('d-none');
+    document.getElementById('inGameMusicOn').classList.add('d-none');
+}
+
+
+function svgMusicOff() {
+    musicPaused = false;
+    document.getElementById('inGameMusicOff').classList.add('d-none');
+    document.getElementById('inGameMusicOn').classList.remove('d-none');
+    document.getElementById('inGameMusicOn').classList.add('d-flex');
 }
 
 
@@ -58,6 +84,7 @@ function startGame() {
     document.getElementById('win-screen').classList.add('is-not-visible');
     document.getElementById('game-over-screen').classList.add('is-not-visible');
     soundsPaused = false;
+    musicPaused = false;
 }
 
 
