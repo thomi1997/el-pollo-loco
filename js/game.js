@@ -131,22 +131,22 @@ function closeStory() {
 
 
 function startFullScreen() {
-    let isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+    let isInFullScreen = 
+        (document.fullscreenElement && document.fullscreenElement !== null) ||
         (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
         (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
         (document.msFullscreenElement && document.msFullscreenElement !== null);
-    let elem = document.getElementById('fullscreen');
+    let elem = document.getElementById('canvas');
     if (!isInFullScreen) {
         openFullscreen(elem);
     } else {
-        closeFullscreen(elem);
+        closeFullscreen();
     }
 
 }
 
 
 function openFullscreen(elem) {
-    document.getElementById('canvas').classList.add('fullscreen-class');
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) {
@@ -160,8 +160,7 @@ function openFullscreen(elem) {
 
 
 function closeFullscreen() {
-    document.getElementById('canvas').classList.remove('fullscreen-class');
-    if (document.exitFullscreen) {
+    if (document.exitFullscreen ) {
         document.exitFullscreen();
     } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen();
