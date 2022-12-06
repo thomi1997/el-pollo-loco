@@ -14,7 +14,6 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     mobileGamePlay();
-    /*console.log('My Character is', world['character']);*/
 }
 
 
@@ -205,41 +204,54 @@ window.addEventListener('keyup', (event) => {
 
 
 function mobileGamePlay() {
+    touchedKeyRight();
+    touchedKeyLeft();
+    touchedKeyJump();
+    touchedKeyThrow();
+}
+
+
+function touchedKeyRight() {
     document.getElementById('buttonRight').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.RIGHT = true;
     });
-
     document.getElementById('buttonRight').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.RIGHT = false;
     });
+}
 
+
+function touchedKeyLeft() {
     document.getElementById('buttonLeft').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.LEFT = true;
     });
-
     document.getElementById('buttonLeft').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.LEFT = false;
     });
+}
 
+
+function touchedKeyJump() {
     document.getElementById('buttonJump').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.UP = true;
     });
-
     document.getElementById('buttonJump').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.UP = false;
     });
+}
 
+
+function touchedKeyThrow() {
     document.getElementById('buttonThrow').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.D = true;
     });
-
     document.getElementById('buttonThrow').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.D = false;

@@ -2,7 +2,7 @@ class Coin extends MovableObject {
 
     width = 130;
     height = 130;
-    y = 50;
+    y = 100;
 
 
     IMAGES = [
@@ -15,7 +15,6 @@ class Coin extends MovableObject {
         super().loadImage(this.IMAGES[0]);
         this.loadImages(this.IMAGES);
         this.x = 200 + Math.random() * 7000;
-        this.y = Math.random() * 300;
         this.animate();
     }
 

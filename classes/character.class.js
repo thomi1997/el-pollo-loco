@@ -3,7 +3,7 @@ class Character extends MovableObject {
     y = 200;
     height = 250;
     width = 150;
-    speed = 8;
+    speed = 6;
     bottle = 0;
     coin = 0;
     world;
@@ -116,7 +116,7 @@ class Character extends MovableObject {
             this.characterCanJump();
             this.world.camera_x = -this.x + 120;
         }, 1000 / 60);
-        setStoppableInterval(() => this.characterAnimation(), 40);
+        setStoppableInterval(() => this.characterAnimation(), 1000 / 7);
     }
 
 
@@ -228,7 +228,7 @@ class Character extends MovableObject {
 
 
     jump() {
-        this.speedY = 16.5;
+            this.speedY = 16.5;
     }
 
 

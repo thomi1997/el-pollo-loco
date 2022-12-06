@@ -1,5 +1,5 @@
 class DrawableObject {
-    
+
     x = 120;
     y = -10;
     height = 150;
@@ -8,7 +8,7 @@ class DrawableObject {
     imageCache = {};
     currentImage = 0;
 
-    
+
     offset = {
         top: 0,
         left: 0,
@@ -24,8 +24,7 @@ class DrawableObject {
     draw(ctx) {
         try {
             ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-            /*this.drawFrame(ctx);*/
-        } catch(e) {
+        } catch (e) {
             console.warn('Error is loading image', e);
             console.log('Could not load image', this.img.src);
         }
@@ -53,83 +52,41 @@ class DrawableObject {
         });
     }
 
+
     /**
-     * the frames of the paintings are painted.
-     * @param {objects} ctx 
+     * 
+     * @returns shows the statusbar.
      */
-    /*
-    drawFrame(ctx) {
-        this.drawCharacter(ctx);
-        this.drawBoss(ctx);
-        this.drawChicken(ctx);
-        this.drawSmallChicken(ctx);
-        this.drawBottles(ctx);
-        this.drawCoins(ctx);    
-    }
-
-
-    drawCharacter(ctx) {
-        if (this instanceof Character) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x + 22, this.y + 94, this.width - 43, this.height - 104);
-            ctx.stroke();
+    resolveImageIndexFromHeartAndEndboss() {
+        if (this.percentage == 100) {
+            return 5;
+        } else if (this.percentage > 80) {
+            return 4;
+        } else if (this.percentage > 60) {
+            return 3;
+        } else if (this.percentage > 40) {
+            return 2;
+        } else if (this.percentage > 20) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 
 
-    drawBoss(ctx) {
-        if (this instanceof Endboss) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x + 19, this.y + 85, this.width - 27, this.height - 100);
-            ctx.stroke();
+    resolveImageIndexFromBottles() {
+        if (this.percentage == 0) {
+            return 0;
+        } else if (this.percentage == 20) {
+            return 1;
+        } else if (this.percentage == 40) {
+            return 2;
+        } else if (this.percentage == 60) {
+            return 3;
+        } else if (this.percentage == 80) {
+            return 4;
+        } else if (this.percentage >= 80) {
+            return 5;
         }
     }
-
-    
-    drawChicken(ctx) {
-        if (this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x, this.y + 4, this.width, this.height - 12);
-            ctx.stroke();
-        }
-    }
-
-
-    drawSmallChicken(ctx) {
-        if (this instanceof SmallChicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x + 4, this.y + 4, this.width - 3, this.height - 12);
-            ctx.stroke();
-        }
-    }
-
-
-    drawBottles(ctx) {
-        if (this instanceof Bottles) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x + 27, this.y + 17, this.width - 45, this.height - 28);
-            ctx.stroke();
-        }
-    }
-
-
-    drawCoins(ctx) {
-        if (this instanceof Coin) {
-            ctx.beginPath();
-            ctx.lineWidth = '3';
-            ctx.strokeStyle = 'blue';
-            ctx.rect(this.x + 42, this.y + 42, this.width - 85, this.height - 85);
-            ctx.stroke();
-        }
-    }*/
 }

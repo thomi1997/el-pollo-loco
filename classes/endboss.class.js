@@ -3,7 +3,7 @@ class Endboss extends MovableObject {
     y = -40;
     height = 500;
     width = 300;
-    speed = 0.5;
+    speed = 1;
     bossDead = false;
     energy = 100;
 
@@ -87,7 +87,7 @@ class Endboss extends MovableObject {
     playHurt() {
         if (this.playAnimation(this.IMAGES_HURT)) {
             this.playAttack();
-            this.speed += 0.05;
+            this.speed += 0.1;
         }
         setInterval(() => this.moveLeft(), 300);
     }

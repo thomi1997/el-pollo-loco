@@ -13,6 +13,13 @@ class SmallChicken extends MovableObject{
     ground = 370;
     otherDirection = Math.random() < 0.5;
 
+    offset = {
+        top: 10,
+        bottom: 5,
+        left: 0,
+        right: 0
+    };
+
 
     IMAGES_WALKING = [
         'img/3_enemies_chicken/chicken_small/1_walk/1_w.png',
@@ -30,7 +37,7 @@ class SmallChicken extends MovableObject{
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
         this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_DEAD);
-        this.x = 4000 + Math.random() * 3000; // Zahl zwischen 200 und 700
+        this.x = 4000 + Math.random() * 3000;
         this.speed = 0.5 + Math.random() * 5;
         this.applyGravity();
         this.animate();

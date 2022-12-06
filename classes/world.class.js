@@ -138,7 +138,6 @@ class World {
             this.flipImage(mo);
         }
         mo.draw(this.ctx);
-        /*mo.drawFrame(this.ctx);*/
         if (mo.otherDirection) {
             this.flipImageBack(mo);
         }
@@ -148,7 +147,6 @@ class World {
     normalChickenIsHittedFromTop(object) {
         return !(object instanceof Endboss) &&
             this.character.isColliding(object) &&
-            this.character.speedY < 0 &&
             this.character.isAboveGround() &&
             !this.character.jump() &&
             !(object.isDead()) &&
